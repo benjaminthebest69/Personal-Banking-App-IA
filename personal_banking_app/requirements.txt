@@ -1,0 +1,4 @@
+ttkbootstrap==1.0.9
+tkcalendar==1.6.1
+matplotlib==3.7.1
+python-dateutil==2.8.2

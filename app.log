@@ -1,0 +1,185 @@
+2024-10-20 20:55:57,509 ERROR:Application error: 'CustomDateEntry' object has no attribute '_calendar'
+Traceback (most recent call last):
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/app.py", line 9, in main
+    app = PersonalBankingApp()
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/gui.py", line 49, in __init__
+    self.create_frames()
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/gui.py", line 83, in create_frames
+    frame = F(content_frame, self)
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/gui.py", line 393, in __init__
+    self.date_entry = CustomDateEntry(form_frame, dateformat='%Y-%m-%d')
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/gui.py", line 26, in __init__
+    super().__init__(master, **kwargs)
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/venv/lib/python3.12/site-packages/tkcalendar/dateentry.py", line 118, in __init__
+    ttk.Entry.__init__(self, master, **entry_kw)
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/venv/lib/python3.12/site-packages/ttkbootstrap/style.py", line 4963, in __init__
+    self.configure(style=ttkstyle)
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/venv/lib/python3.12/site-packages/tkcalendar/dateentry.py", line 405, in configure
+    self._calendar.configure(kwargs)
+    ^^^^^^^^^^^^^^
+AttributeError: 'CustomDateEntry' object has no attribute '_calendar'
+2024-10-20 21:10:02,008 ERROR:Application error: '%Y-%m-%d' is not a valid date pattern
+Traceback (most recent call last):
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/app.py", line 9, in main
+    app = PersonalBankingApp()
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/gui.py", line 51, in __init__
+    self.create_frames()
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/gui.py", line 77, in create_frames
+    frame = F(content_frame, self)
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/gui.py", line 386, in __init__
+    self.date_entry = CustomDateEntry(form_frame, date_pattern='%Y-%m-%d')
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/gui.py", line 25, in __init__
+    super().__init__(master, **kwargs)
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/venv/lib/python3.12/site-packages/tkcalendar/dateentry.py", line 128, in __init__
+    self._calendar = Calendar(self._top_cal, **kw)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/venv/lib/python3.12/site-packages/tkcalendar/calendar_.py", line 260, in __init__
+    date_pattern = self._get_date_pattern(kw.pop("date_pattern", "short"), locale)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/venv/lib/python3.12/site-packages/tkcalendar/calendar_.py", line 1205, in _get_date_pattern
+    raise ValueError("%r is not a valid date pattern" % date_pattern)
+ValueError: '%Y-%m-%d' is not a valid date pattern
+2024-10-20 21:10:21,881 ERROR:Application error: '%Y-%m-%d' is not a valid date pattern
+Traceback (most recent call last):
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/app.py", line 9, in main
+    app = PersonalBankingApp()
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/gui.py", line 51, in __init__
+    self.create_frames()
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/gui.py", line 77, in create_frames
+    frame = F(content_frame, self)
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/gui.py", line 386, in __init__
+    self.date_entry = CustomDateEntry(form_frame, date_pattern='%Y-%m-%d')
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/gui.py", line 25, in __init__
+    super().__init__(master, **kwargs)
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/venv/lib/python3.12/site-packages/tkcalendar/dateentry.py", line 128, in __init__
+    self._calendar = Calendar(self._top_cal, **kw)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/venv/lib/python3.12/site-packages/tkcalendar/calendar_.py", line 260, in __init__
+    date_pattern = self._get_date_pattern(kw.pop("date_pattern", "short"), locale)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/venv/lib/python3.12/site-packages/tkcalendar/calendar_.py", line 1205, in _get_date_pattern
+    raise ValueError("%r is not a valid date pattern" % date_pattern)
+ValueError: '%Y-%m-%d' is not a valid date pattern
+2024-10-20 22:48:21,961 ERROR:Database error: no such column: user_id
+2024-10-20 22:48:21,962 ERROR:Error in HomePage.refresh: no such column: user_id
+Traceback (most recent call last):
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/gui.py", line 595, in refresh
+    expenses = Expense.get_all(self.controller.current_user_id)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/models.py", line 176, in get_all
+    cursor.execute("""
+sqlite3.OperationalError: no such column: user_id
+2024-10-20 22:48:30,307 ERROR:Database error: no such column: user_id
+2024-10-20 22:48:30,307 ERROR:Error in ViewExpensesPage.refresh: no such column: user_id
+Traceback (most recent call last):
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/gui.py", line 846, in refresh
+    expenses = Expense.get_all(self.controller.current_user_id)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/models.py", line 176, in get_all
+    cursor.execute("""
+sqlite3.OperationalError: no such column: user_id
+2024-10-20 22:48:33,497 ERROR:Database error: no such column: user_id
+2024-10-20 22:48:33,497 ERROR:Error in ViewExpensesPage.refresh: no such column: user_id
+Traceback (most recent call last):
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/gui.py", line 846, in refresh
+    expenses = Expense.get_all(self.controller.current_user_id)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/models.py", line 176, in get_all
+    cursor.execute("""
+sqlite3.OperationalError: no such column: user_id
+2024-10-20 22:48:36,605 ERROR:Database error: no such column: user_id
+2024-10-20 22:48:36,605 ERROR:Error in SpendingSummaryPage.refresh: no such column: user_id
+Traceback (most recent call last):
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/gui.py", line 1445, in refresh
+    daily_spending = Expense.get_spending_since(start_of_day, self.controller.current_user_id)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/models.py", line 203, in get_spending_since
+    cursor.execute("""
+sqlite3.OperationalError: no such column: user_id
+2024-10-20 22:48:41,094 ERROR:Database error: no such column: user_id
+2024-10-20 22:48:41,095 ERROR:Error in ViewExpensesPage.refresh: no such column: user_id
+Traceback (most recent call last):
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/gui.py", line 846, in refresh
+    expenses = Expense.get_all(self.controller.current_user_id)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/models.py", line 176, in get_all
+    cursor.execute("""
+sqlite3.OperationalError: no such column: user_id
+2024-10-20 22:52:09,934 ERROR:Error during login: no such table: Users
+Traceback (most recent call last):
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/gui.py", line 316, in login
+    user_id = User.authenticate(username, password)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/models.py", line 126, in authenticate
+    cursor.execute("""
+sqlite3.OperationalError: no such table: Users
+2024-10-20 22:52:20,041 ERROR:Error during registration: no such table: Users
+Traceback (most recent call last):
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/gui.py", line 406, in register
+    User.add_user(username, password)
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/models.py", line 101, in add_user
+    cursor.execute("""
+sqlite3.OperationalError: no such table: Users
+2024-10-20 22:54:26,579 ERROR:Error during registration: no such table: Users
+Traceback (most recent call last):
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/gui.py", line 406, in register
+    User.add_user(username, password)
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/models.py", line 101, in add_user
+    cursor.execute("""
+sqlite3.OperationalError: no such table: Users
+2024-10-20 22:56:31,324 ERROR:Error during login: no such table: Users
+Traceback (most recent call last):
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/gui.py", line 316, in login
+    user_id = User.authenticate(username, password)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/models.py", line 126, in authenticate
+    cursor.execute("""
+sqlite3.OperationalError: no such table: Users
+2024-10-21 13:56:26,551 ERROR:Error in add_category: Category.add() missing 1 required positional argument: 'user_id'
+Traceback (most recent call last):
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/gui.py", line 1152, in add_category
+    Category.add(name)
+TypeError: Category.add() missing 1 required positional argument: 'user_id'
+2024-10-21 13:56:43,096 ERROR:Error in add_category: Category.add() missing 1 required positional argument: 'user_id'
+Traceback (most recent call last):
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/gui.py", line 1152, in add_category
+    Category.add(name)
+TypeError: Category.add() missing 1 required positional argument: 'user_id'
+2024-10-21 14:10:03,820 ERROR:Error in add_category: Category.add() missing 1 required positional argument: 'user_id'
+Traceback (most recent call last):
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/gui.py", line 1152, in add_category
+    Category.add(name)
+TypeError: Category.add() missing 1 required positional argument: 'user_id'
+2024-10-21 14:10:51,778 ERROR:Error in mark_as_paid: RecurringPayment.mark_as_paid() missing 1 required positional argument: 'user_id'
+Traceback (most recent call last):
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/gui.py", line 1374, in mark_as_paid
+    RecurringPayment.mark_as_paid(payment_id, payment_date_str)
+TypeError: RecurringPayment.mark_as_paid() missing 1 required positional argument: 'user_id'
+2024-10-22 14:20:55,991 ERROR:Error in add_category: Category.add() missing 1 required positional argument: 'user_id'
+Traceback (most recent call last):
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/gui.py", line 1152, in add_category
+    Category.add(name)
+TypeError: Category.add() missing 1 required positional argument: 'user_id'
+2024-10-22 14:28:51,192 ERROR:Error in add_category: Incorrect number of bindings supplied. The current statement uses 1, and there are 4 supplied.
+Traceback (most recent call last):
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/gui.py", line 1153, in add_category
+    Category.add(name)
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/models.py", line 163, in add
+    cursor.execute("""
+sqlite3.ProgrammingError: Incorrect number of bindings supplied. The current statement uses 1, and there are 4 supplied.
+2024-10-22 14:33:07,892 ERROR:Error in add_category: near ")": syntax error
+Traceback (most recent call last):
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/gui.py", line 1153, in add_category
+    Category.add(name)
+  File "/Users/benjones/Desktop/COMPUTER SCIENCE/IB IA/Personal Banking App IA/personal_banking_app/models.py", line 163, in add
+    cursor.execute("""
+sqlite3.OperationalError: near ")": syntax error
