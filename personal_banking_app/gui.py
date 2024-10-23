@@ -1144,24 +1144,25 @@ class CategoryPage(ttk.Frame):
                 logger.exception("Error in CategoryPage.refresh: %s", e)
                 messagebox.showerror("Error", f"An error occurred while refreshing categories:\n{e}")
     
-        def add_category(self):
+        def add_category(self, user_id):
             """Add a new category."""
             try:
-                name = self.category_entry.get().strip()
+                category_name = self.category_entry.get().strip()
+                print("This is the category name", category_name)
                 
-                if name:
-                    Category.add(name)
-                    messagebox.showinfo("Success", f"Category '{name}' added.")
+                if user_id:
+                    Category.add_category(category_name)
+                    messagebox.showinfo("Success", f"Category '{category_name}' added.")
                     self.category_entry.delete(0, tk.END)
                     self.refresh()
                     # Also refresh categories in AddExpensePage if it's open
                     self.controller.frames[AddExpensePage].refresh()
-                    logger.info("Added new category: %s", name)
+                    logger.info("Added new category: %s", category_name)
                 else:
                     messagebox.showerror("Input Error", "Category name cannot be empty.")
             except ValueError as ve:
                 messagebox.showerror("Input Error", str(ve))
-                logger.warning("Attempted to add duplicate category: %s", name)
+                logger.warning("Attempted to add duplicate category: %s", category_name)
             except Exception as e:
                 logger.exception("Error in add_category: %s", e)
                 messagebox.showerror("Error", f"An error occurred while adding the category:\n{e}")

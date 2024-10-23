@@ -34,7 +34,7 @@ def init_db():
     # Create Users table
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS Users (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            user_id INTEGER PRIMARY KEY AUTOINCREMENT,
             username TEXT UNIQUE NOT NULL,
             password TEXT NOT NULL
         )
@@ -43,51 +43,51 @@ def init_db():
     # Create Categories table with user_id
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS Categories (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            name TEXT NOT NULL,
+            category_id INTEGER PRIMARY KEY AUTOINCREMENT,
             user_id INTEGER NOT NULL,
-            FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE CASCADE
+            FOREIGN KEY (user_id) REFERENCES Users(user_id)
         )
     """)
-    
+
     # Create Expenses table with user_id
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS Expenses (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            expense_id INTEGER PRIMARY KEY AUTOINCREMENT,
             date TEXT NOT NULL,
-            category TEXT NOT NULL,
+            category_id INTEGER NOT NULL,
             amount REAL NOT NULL,
             user_id INTEGER NOT NULL,
-            FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE CASCADE
+            FOREIGN KEY (category_id) REFERENCES Categories(category_id) ON DELETE CASCADE,
+            FOREIGN KEY (user_id) REFERENCES Users(user_id) ON DELETE CASCADE
         )
     """)
-    
+
     # Create RecurringPayments table with user_id
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS RecurringPayments (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            name TEXT NOT NULL,
+            recurring_payment_id INTEGER PRIMARY KEY AUTOINCREMENT,
             amount REAL NOT NULL,
             due_date TEXT NOT NULL,
             frequency TEXT NOT NULL,
             user_id INTEGER NOT NULL,
-            FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE CASCADE
+            FOREIGN KEY (user_id) REFERENCES Users(user_id) ON DELETE CASCADE
         )
     """)
     
     # Create Budget table with user_id
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS Budget (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            budget_id INTEGER PRIMARY KEY AUTOINCREMENT,
             month TEXT NOT NULL,
             amount REAL NOT NULL,
             user_id INTEGER NOT NULL,
-            FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE CASCADE
+            FOREIGN KEY (user_id) REFERENCES Users(user_id) ON DELETE CASCADE
         )
     """)
     
     conn.commit()
     conn.close()
+
 
 class User:
     """Handles user-related database operations."""
@@ -146,21 +146,20 @@ class Category:
     """Handles category-related database operations."""
 
     @staticmethod
-    def add(name):
-        if not name or not isinstance(name, str):
-            raise ValueError("Category name must be a non-empty string.")
+    def add(user_id):
+        if not user_id or not isinstance(user_id, int):
+            raise ValueError("User ID must be a valid integer.")
         try:
             conn = get_connection()
             cursor = conn.cursor()
             cursor.execute("""
-                INSERT INTO Categories (name)
+                INSERT INTO Categories (user_id)
                 VALUES (?)
-            """, (name,))
+            """, (user_id,))
             conn.commit()
-            conn.close()
             return cursor.lastrowid
         except sqlite3.IntegrityError:
-            raise ValueError("Category already exists.")
+            raise ValueError("Category already exists or user ID is invalid.")
         finally:
             conn.close()
 
